@@ -19,6 +19,10 @@ class Funcionario{
 		return(new Database(' pessoas as p inner join cargo as c inner join departamento as d '))->select($where, $order, $limit, $fields)->fetchAll(PDO::FETCH_CLASS, self::class)/**/;
 	}
 
+	public static function getQtdFuncs($where = null){
+		return(new Database(' pessoas as p inner join cargo as c inner join departamento as d '))->select($where, null, null, 'count(*) as qtd')->fetchObject()->qtd/**/;
+	}
+
 	public static function getFunc($id){
 		return (new Database(' pessoas '))->select('id_pessoa = '.$id)->fetchObject(self::class)/**/;
 	}

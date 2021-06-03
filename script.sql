@@ -116,8 +116,19 @@ where c.id_departamento = d.id_departamento
 */
   
 
+insert into cargo (cargo, salario, id_departamento) values ('Desenvolvedor', '500.50', 1);
 
 
+select 
+	
+	 distinct c.cargo as cargo , 
+     id_cargo,
+     d.departamento as departamento
+from pessoas as p
+inner join cargo as c
+inner join departamento as d
+where p.id_cargo = c.id_cargo
+and c.id_departamento = d.id_departamento
 
 
 

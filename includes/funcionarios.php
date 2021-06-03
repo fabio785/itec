@@ -1,5 +1,6 @@
 <?php 
 	$msg = '';
+	$cargos = '';
 
 	if (isset($_GET['sts'])) {
 		if($_GET['sts']=='success'){
@@ -41,11 +42,18 @@
 					 	';
 	}
 
+	foreach ($cargosOcupados as $co) {
+		$selected = '';
+		(isset($_GET['cargo']) and $co->id == $_GET['cargo'])? $selected = 'selected':'';
+		$cargos .= '<option '.$selected.' value="'.$co->id.'">'.$co->cargo.' - '.$co->departamento.'</option>';
+	}
+
 	echo $msg;
 
  ?>
 
 <main class="container">
+	<!-- <option  value="'.$co->id.'">'.$co->cargo.'-'.$co->departamento.'</option> -->
 
 	<a href="form-func.php" class="abutton">
 		<button class="cad">
@@ -54,6 +62,29 @@
 		</button>
 	</a>
 	<h1>Quadro de funcionarios</h1>
+
+	<section>
+		<form method="get" action="home.php?inc=f&" class="form-func filtro" style="min-width: 50%;" >
+			<div>
+				<div style="min-width: 50%;"  class="form-control">
+					<label style="box-sizing: content-box;">Buscar por Nome</label>
+					<input type="hidden" name="inc" value="f"> 
+					<input style="" type="text" name="busca" value="<?=$busca?>">
+				</div>
+				<div>
+					<label>Cargo</label>
+					<select name="cargo">
+						<option></option>
+						<?=$cargos?>
+					</select>
+				</div>
+			</div>
+			<div>
+				<button type="submit" class="abutton edit">Filtrar</button>
+			</div>
+		</form>
+	</section>
+
 	<table>
 		<thead>
 			<th>N° de Mat.</th>
