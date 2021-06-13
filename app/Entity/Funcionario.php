@@ -14,6 +14,8 @@ class Funcionario{
 	public $celular;
 	public $telefone;
 	public $id_cargo;
+	public $usuario;
+	public $senha;
 
 	public static function getFuncs($where = null, $order = null, $limit = null, $fields = '*'){
 		return(new Database(' pessoas as p inner join cargo as c inner join departamento as d '))->select($where, $order, $limit, $fields)->fetchAll(PDO::FETCH_CLASS, self::class)/**/;
@@ -35,7 +37,9 @@ class Funcionario{
 			'nasc'=> $this->nasc,
 			'celular'=> $this->celular,
 			'telefone'=> $this->telefone,
-			'id_cargo'=> $this->id_cargo	
+			'id_cargo'=> $this->id_cargo,
+			'usuario'=>$this->usuario,
+			'senha'=>$this->senha
 		]);
 
 		return true;
@@ -48,7 +52,9 @@ class Funcionario{
 			'nasc'=> $this->nasc,
 			'celular'=> $this->celular,
 			'telefone'=> $this->telefone,
-			'id_cargo'=> $this->id_cargo	
+			'id_cargo'=> $this->id_cargo,	
+			'usuario'=> $this->usuario,	
+			'senha'=> $this->senha	
 		]);
 	}
 

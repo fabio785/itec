@@ -67,11 +67,11 @@
 		<form method="get" action="home.php?inc=f&" class="form-func filtro" style="min-width: 50%;" >
 			<div>
 				<div style="min-width: 50%;"  class="form-control">
-					<label style="box-sizing: content-box;">Buscar por Nome</label>
+					<label >Buscar por Nome</label>
 					<input type="hidden" name="inc" value="f"> 
 					<input style="" type="text" name="busca" value="<?=$busca?>">
 				</div>
-				<div>
+				<div class="form-control">
 					<label>Cargo</label>
 					<select name="cargo">
 						<option></option>

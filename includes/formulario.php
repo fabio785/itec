@@ -56,6 +56,16 @@ foreach ($cargos as $cargo) {
 			</select>
 		</div>
 
+		<div class="form-control user">
+			<label>Usuário</label>
+			<input type="text" value="<?=$func->usuario?>" name="usuario">
+		</div>
+
+		<div class="form-control user">
+			<label>Senha</label>
+			<input type="text" value="<?=$func->senha?>" name="senha">
+		</div>
+
 
 
 
@@ -85,3 +95,11 @@ foreach ($cargos as $cargo) {
 			<?php } ?>
 	</form>
 </main>
+
+<script type="text/javascript">
+	let cargo = document.getElementsByName('id_cargo')[0]
+
+	if(cargo.value == "Análista de RH - Recursos Humanos"){
+		alert(cargo.value)
+	}
+</script>

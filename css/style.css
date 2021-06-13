@@ -297,6 +297,49 @@ main td{
 	float: right;	
 }
 .modalerror, .modalerror .fecharerror{
-	background-color: rgba(247, 58, 45, .9)
+	background-color: rgba(247, 58, 45, .9);
 }
 /*fim modal*/
+
+
+.login-bg{
+	width: 100%;
+	height: 100%;
+	position:absolute;
+	background-color: rgba(0,0,0, .8);
+	top:-1000%;
+	transition: 350ms;
+}
+.login-bg .form-func{
+	background-color: white;
+	width: 50%;
+	transform: translate(-50%, -50%);
+	position: absolute;
+	top:50%;
+	left: 50%;
+	padding: 0;
+	display: block;
+	border-radius: 15px;
+}
+.login-bg .form-func img{
+	width: 25%;
+	margin:10px auto 0 auto;
+	display: block;
+	}
+.login-bg .form-func .form-control {
+	position: relative;
+	left: 50%;	
+	transform: translateX(-50%);
+}
+.login-bg .form-func .form-control input{
+	width: 100%;
+}
+.esqueci{
+	text-align: right;
+	margin:0;
+	font-size: 0.8em; 
+}
+.login-bg .form-func .form-control .voltar, .login-bg .form-func .form-control .edit{
+	padding:0;
+}
+

@@ -31,6 +31,8 @@ if (!isset($_GET['id']) || !is_numeric($_GET['id'])){
 		$func->celular = $_POST['celular'];
 		$func->telefone = $_POST['telefone'];
 		$func->id_cargo = $_POST['id_cargo'];
+		$func->usuario = $_POST['usuario'];
+		$func->senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
 		$func->atualizar();
 
 		header('location:home.php?inc=f&sts=success');

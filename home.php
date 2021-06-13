@@ -1,8 +1,12 @@
 <?php 
+		require_once __DIR__.'/app/Session/Login.php';
 		use app\Entity\Funcionario;
 		use app\Entity\Cargo;
 		use app\Entity\Departamento;
 		use app\Db\Pagination;
+		use app\Session\Login;
+
+		Login::requireLogin();
 
 
 
@@ -10,6 +14,15 @@
 
 
 include __DIR__.'/includes/header.php';
+
+// print_r($_SESSION['usuario']);EXIT;
+?>
+
+<!-- <p>Bem Vindo <?=$nome?></p> -->
+
+
+
+<?php
 
 if(		isset($_GET['inc'])		){
 
@@ -92,7 +105,13 @@ and c.id_departamento = d.id_departamento ',
 	}
 
 
-}
+}else{
+	$nome = $_SESSION['usuario']['nome'];?>
+		<div class="container">
+			<p style="text-align: right; font-size: 1.5em;">Bem vindo <?=$nome?>!</p>
+			<p style="text-align: right;"><a href="logout.php" class="abutton voltar">Sair</a></p>
+		</div>
+	<?php }
 
 
 

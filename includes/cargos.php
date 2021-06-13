@@ -1,4 +1,19 @@
 <?php 
+$msg = '';
+if (isset($_GET['sts'])) {
+		if($_GET['sts']=='success'){
+			$msg = '<p class="modalsuccess" id="modalsuccess">Operação efetuada com Sucesso! <button class="fechar" id="fecharsuccess">X</button></p>';
+		}else if($_GET['sts']=='error'){
+			$msg = '<p class="modalerror" id="modalerror">
+			Operação não efetuada! 
+			<button class="fecharerror" id="fecharerror">
+				X
+			</button>
+		</p>';
+		}
+	}
+
+	
 	$resultado = '';
 	foreach ($cargos as $cargo) {
 		$salario = str_replace(".", ",", $cargo->salario );
